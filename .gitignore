@@ -3,4 +3,5 @@ env/
 .env
 *.log
 *.txt
+.DS_Store
 

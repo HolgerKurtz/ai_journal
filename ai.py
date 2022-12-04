@@ -1,19 +1,9 @@
 import os
-import logging
 import openai
 from dotenv import load_dotenv
 
 # load environment variables
 load_dotenv()
-
-logging.basicConfig(
-    filename="gpt-3_newsletter.log",
-    filemode="a",
-    format="%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s",
-    datefmt="%H:%M:%S",
-    level=logging.DEBUG,
-)
-logger = logging.getLogger(__name__)
 
 
 class TextGen:
@@ -36,7 +26,6 @@ class TextGen:
 
         # print the first response
         ai_response = response.choices[0].text
-        logging.info(ai_response)
         return ai_response
 
 
