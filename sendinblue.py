@@ -48,9 +48,9 @@ class Newsletter:
         return response.json().get('id')
 
     def send(self, campaign_id=14):
-        url = f"https://api.sendinblue.com/v3/emailCampaigns/{campaign_id}/sendTest" # sendNow 
-        payload = {"emailTo": ["hk@holgerkurtz.de", "juliaripke@icloud.com"]} # only for sendTest
-        response = requests.post(url, json=payload, headers=self.headers) # json=payload only for test
+        url = f"https://api.sendinblue.com/v3/emailCampaigns/{campaign_id}/sendNow"
+        # payload = {"emailTo": ["hk@holgerkurtz.de", "juliaripke@icloud.com"]} # only for sendTest
+        response = requests.post(url, headers=self.headers) # json=payload only for test
         print(response.text)
         return response
 
