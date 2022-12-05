@@ -13,12 +13,12 @@ class TextGen:
         self.prompt = prompt
         self.variable = variable
 
-    def create_text(self):
+    def create_text(self, tokens=100):
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=self.prompt,
             temperature=0.5,
-            max_tokens=50,
+            max_tokens=tokens,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
