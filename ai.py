@@ -26,6 +26,7 @@ class TextGen:
 
         # print the first response
         ai_response = response.choices[0].text
+        print(response)
         return ai_response
 
 
