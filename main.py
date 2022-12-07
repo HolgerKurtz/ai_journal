@@ -27,5 +27,4 @@ def send(prompt_file=None):
 if __name__ == "__main__":
     wd = get_weekday()
     if wd == 2:
-        print("Mittwoch")
-        # send(prompt_file="ai_prompt.txt")
+        send(prompt_file="ai_prompt.txt")
