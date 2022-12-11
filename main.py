@@ -17,14 +17,19 @@ def send(prompt_file=None):
     print(text.__dict__)
     new_ai_text = text.create_text(tokens=500)
     print(new_ai_text)
+    """
 
     with open(prompt_file, 'w+') as file:
         file.write(new_ai_text)
+    """
 
     n = Newsletter(ai_text=new_ai_text)
     r = n.send(n.create_id())
 
 if __name__ == "__main__":
     wd = get_weekday()
-    if wd == 2:
+    if wd == 3:
+        print("mittwoch")
+        send(prompt_file="ai_prompt.txt")
+    else:
         send(prompt_file="ai_prompt.txt")
