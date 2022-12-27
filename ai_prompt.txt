@@ -1,2 +1,3 @@
-Write a eventfull and witty diary entry from a woman called Susanne:
-Dear Diary,
+Write an eventful diary entry for {date} by a woman named Susanne. In it, she also reflects on a news article about: "{headline}"
+
+Dear diary,
