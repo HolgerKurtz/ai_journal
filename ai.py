@@ -17,7 +17,7 @@ class TextGen:
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=self.prompt,
-            temperature=0.5,
+            temperature=0.3,
             max_tokens=tokens,
             top_p=1,
             frequency_penalty=0,
