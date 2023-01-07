@@ -13,7 +13,7 @@ def get_weekday():
     return week_day
 
 def send():
-    abstract = get_news_from_nyt(0, "home").get("abstract")
+    abstract = get_news_from_nyt(0, "technology").get("abstract")
     ai_prompt = new_prompt(abstract, date.today())
     text = TextGen(prompt=ai_prompt)
     print(text.__dict__)
