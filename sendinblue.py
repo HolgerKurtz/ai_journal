@@ -26,7 +26,7 @@ class Newsletter:
             },
             "name": "Newsletter - HEUTE",
             "htmlContent": self.ai_text,
-            "subject": "Message from an AI",
+            "subject": "📧 A Letter From Beethoven",
             "replyTo": "hk@holgerkurtz.de",
             "toField": "{FNAME}",
             "recipients": {
