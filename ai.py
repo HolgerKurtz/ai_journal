@@ -13,15 +13,16 @@ class TextGen:
         self.prompt = prompt
         self.variable = variable
 
-    def create_text(self, tokens=100):
+    def create_text(self, tokens=256):
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=self.prompt,
             temperature=0.3,
             max_tokens=tokens,
             top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
+            frequency_penalty=0.8,
+            presence_penalty=0.7,
+            stop="---"
         )
 
         # print the first response
@@ -31,6 +32,8 @@ class TextGen:
 
 
 if __name__ == "__main__":
-    text = TextGen(prompt="This is a fictional story about Joe. Joe is stranded on an empty island and thinks about his life. He speaks about himself.\n I remember the day I got my apartment in New York. I")
+    from choose_random_letters import choose_letters
+    beethoven_prompt = "Write a letter from Ludwig van Beethoven. Be specific and detail oriented:\n" + choose_letters(number=6)
+    text = TextGen(prompt=beethoven_prompt)
     ai_text = text.create_text()
     print(ai_text)
