@@ -1,7 +1,7 @@
 from sendinblue import Newsletter
 from update_prompt import get_news_from_nyt, new_prompt
 from ai import TextGen
-
+from choose_random_letters import choose_letters
 from datetime import datetime, date
 
 
@@ -13,9 +13,11 @@ def get_weekday():
     return week_day
 
 def send():
-    abstract = get_news_from_nyt(0, "home").get("abstract")
-    ai_prompt = new_prompt(abstract, date.today())
-    text = TextGen(prompt=ai_prompt)
+    # abstract = get_news_from_nyt(0, "home").get("abstract")
+    # ai_prompt = new_prompt(abstract, date.today())
+    beethoven_prompt = "Write a letter from Ludwig van Beethoven. Be specific and detail oriented:\n" + choose_letters(number=6)
+    
+    text = TextGen(prompt=beethoven_prompt)
     print(text.__dict__)
     new_ai_text = text.create_text(tokens=500)
     print(new_ai_text)
