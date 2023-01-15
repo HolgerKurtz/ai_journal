@@ -2,22 +2,23 @@
 
 import json
 
-BEETHOVEN_TXT = "beethoven-letters.txt"
+BEETHOVEN_TXT = "beethoven-letters_clean.txt"
 
 with open(BEETHOVEN_TXT, "r") as b:
     beethoven_text = b.read()
 
-each_letter = beethoven_text.split("---")
+each_letter = beethoven_text.split("\n---\n")
+print(f"Anzahl der Briefe: {len(each_letter)}")
 prompts = []
+print(each_letter[1])
 for letter in each_letter:
-    part = letter.split("\n\n")
+    part = letter.split("\n")
     p = f"Write a letter from Ludwig van Beethoven {part[0]}"
     if "TO" in p:
-        cleaned_prompt = p.replace("\n", "")
         c = part[1:]
         comp = "\n".join(c)
         cleaned_c = f" {comp}\n---" # recommendation by openai
-        structured =dict(prompt=cleaned_prompt, completion=cleaned_c)
+        structured =dict(prompt=p, completion=cleaned_c)
         prompts.append(structured)
     else:
         pass

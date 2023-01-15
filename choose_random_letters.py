@@ -5,7 +5,7 @@
 """
 import random
 
-BEETHOVEN_TXT = "beethoven-letters.txt"
+BEETHOVEN_TXT = "beethoven-letters_clean.txt"
 
 def choose_letters(path_to_file=BEETHOVEN_TXT, number=10):
     list_of_prompts = []
@@ -21,7 +21,7 @@ def choose_letters(path_to_file=BEETHOVEN_TXT, number=10):
         if "TO" in anrede:
             PROMPT +=anrede + "\n"
             PROMPT += " ".join(parts[1:])
-            PROMPT += "\n---\n"
+            PROMPT += "---"
             list_of_prompts.append(PROMPT)
         else:
             pass
@@ -33,4 +33,5 @@ def choose_letters(path_to_file=BEETHOVEN_TXT, number=10):
 
 if __name__ == "__main__":
     prompt = choose_letters()
+    print(prompt)
 
