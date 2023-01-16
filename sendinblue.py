@@ -12,7 +12,7 @@ def open_file(filepath):
 
 class Newsletter:
     def __init__(self, ai_text=None):
-        self.ai_text = open_file('mail.txt').replace("{{AI_TEXT}}", ai_text)
+        self.ai_text = open_file('mail.txt').replace("{{AI_TEXT}}", ai_text.replace("\n", "<br />"))
         self.headers = {
             "accept": "application/json",
             "content-type": "application/json",
@@ -49,8 +49,14 @@ class Newsletter:
 
     def send(self, campaign_id=14):
         url = f"https://api.sendinblue.com/v3/emailCampaigns/{campaign_id}/sendNow"
-        # payload = {"emailTo": ["hk@holgerkurtz.de", "juliaripke@icloud.com"]} # only for sendTest
-        response = requests.post(url, headers=self.headers) # json=payload only for test
+        response = requests.post(url, headers=self.headers)
+        print(response.text)
+        return response
+    
+    def send_test(self, campaign_id=14):
+        url = f"https://api.sendinblue.com/v3/emailCampaigns/{campaign_id}/sendTest"
+        payload = {"emailTo": ["hk@holgerkurtz.de"]} # only for 
+        response = requests.post(url, headers=self.headers, json=payload)
         print(response.text)
         return response
 
