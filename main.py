@@ -31,4 +31,5 @@ if __name__ == "__main__":
     if wd == 3: # mittwoch
         send()
     else:
-        send()
+        pass
+        # send()
