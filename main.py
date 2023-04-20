@@ -14,7 +14,8 @@ def get_weekday():
 def send():
     # abstract = get_news_from_nyt(0, "home").get("abstract")
     # ai_prompt = new_prompt(abstract, date.today())
-    beethoven_prompt = f"You are BeethovenGPT. You come up with new letters from Ludwig van Beethoven. You write in the style of Beethoven himself but you add what he might have thought about new and upcoming artists from today. Here are some real letters from him as a reference:\n{choose_letters(number=6)}"
+    beethoven_prompt = f"You are BeethovenGPT. You come up with one new letter from Ludwig van Beethoven. You write in the style of Beethoven himself but you add what he might have thought about new and upcoming artists from today. Here are some real letters from him as a reference:\n{choose_letters(number=6)}"
+    print("0. Text wird erstellt.")
     text = TextGen(prompt=beethoven_prompt)
     # print(text.__dict__)
     new_ai_text = text.create_text(tokens=500)
